@@ -1,12 +1,13 @@
 <template>
   <header class="header">
     <Container class="header-inner">
+      <!-- logo -->
       <router-link to="/" class="logo">Instagram</router-link>
-
+      <!-- search -->
       <form class="search">
         <input type="text" placeholder="Search" />
       </form>
-
+      <!-- navigation -->
       <nav class="navigation">
         <router-link to="/">
           <IconHomeFill v-if="$route.name === 'Home'" />
@@ -50,14 +51,25 @@ export default {
 
 <style scoped>
 .header {
+  z-index: 90;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: white;
   border-bottom: 1px solid rgb(var(--b6a));
 }
 
 .header-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  height: var(--header-height);
+  display: flex;
   align-items: center;
-  height: 57px;
+  justify-content: center;
+  @media (--t) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+  }
 }
 
 .logo {
